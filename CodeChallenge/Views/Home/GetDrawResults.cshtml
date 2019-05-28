@@ -1,0 +1,56 @@
+﻿@model DrawViewModel
+
+    @{
+        ViewBag.Title = "Draw Details";
+    }
+
+    <h2>Draw Details</h2>
+
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DrawDisplayName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DrawNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DrawDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DrawLogoUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Div1Amount)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DrawDisplayName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DrawNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DrawDate)
+                </td>
+                <td>
+                    <img src="@item.DrawLogoUrl" alt="Sample Photo" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Div1Amount)
+                </td>
+            </tr>
+        }
+
+    </table>

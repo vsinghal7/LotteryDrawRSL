@@ -1,0 +1,89 @@
+﻿@model CodeChallenge.DrawViewModel
+
+@{
+    ViewBag.Title = "FinalDrawResults";
+}
+
+<h2 style="color:blue">Final Draw Results</h2>
+<h4 style="color:brown"> Select the product type and click on display draw results </h4>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-inline">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.TattsLotto, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.TattsLotto)
+                    @Html.ValidationMessageFor(model => model.TattsLotto, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MonWedLotto, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.MonWedLotto)
+                    @Html.ValidationMessageFor(model => model.MonWedLotto, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OzLotto, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.OzLotto)
+                    @Html.ValidationMessageFor(model => model.OzLotto, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Powerball, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Powerball)
+                    @Html.ValidationMessageFor(model => model.Powerball, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Super66, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Super66)
+                    @Html.ValidationMessageFor(model => model.Super66, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-o
+                 ffset-2 col-md-10">
+                <input type="submit" value="Display Draw Results" class="btn btn-default" />
+            </div>
+        </div>
+
+        <hr />
+
+        @Html.Partial("_ProductDetails", Model.Draws.ToList())
+
+
+
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
